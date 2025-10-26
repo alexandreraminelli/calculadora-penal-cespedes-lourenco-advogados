@@ -14,4 +14,6 @@
     <string name="tipo_crime_hediondo">Hediondo/Equiparado</string>
     <string name="status_apenado_primario">Primário</string>
     <string name="status_apenado_reincidente">Reincidente</string>
+    <string name="label_tipo_crime">Tipo de Crime</string>
+    <string name="label_status_apenado">Status do Apenado</string>
 </resources>

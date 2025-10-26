@@ -12,6 +12,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import br.com.cespedeslourencoadvogados.calculadorapenal.R
+import br.com.cespedeslourencoadvogados.calculadorapenal.data.StatusApenado
+import br.com.cespedeslourencoadvogados.calculadorapenal.data.TipoCrime
 
 /** Formulário da Calculadora Penal. */
 @Composable
@@ -41,8 +43,16 @@ fun CalculatorScreen(
         DurationInput(R.string.label_detracao)
 
         // Tipo de Crime
+        SelectInput(
+            label = R.string.label_tipo_crime,
+            options = TipoCrime.values().toList()
+        )
 
         // Status do Apenado
+        SelectInput(
+            label = R.string.label_status_apenado,
+            options = StatusApenado.values().toList()
+        )
     }
 }
 
