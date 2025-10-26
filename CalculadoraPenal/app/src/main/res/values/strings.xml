@@ -16,4 +16,5 @@
     <string name="status_apenado_reincidente">Reincidente</string>
     <string name="label_tipo_crime">Tipo de Crime</string>
     <string name="label_status_apenado">Status do Apenado</string>
+    <string name="calcular">Calcular</string>
 </resources>
