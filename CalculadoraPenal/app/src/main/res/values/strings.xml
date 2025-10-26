@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Calculadora Penal</string>
     <string name="nome_empresa">Cespedes Lourenço Advogados</string>
+    <string name="label_pena_total">Pena Total</string>
+    <string name="anos">Anos</string>
+    <string name="meses">Meses</string>
+    <string name="dias">Dias</string>
+    <string name="label_detracao">Tempo de Detração</string>
 </resources>
