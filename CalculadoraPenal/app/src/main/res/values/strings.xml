@@ -10,4 +10,8 @@
     <string name="selecionar_data">Selecionar Data</string>
     <string name="confirmar">OK</string>
     <string name="cancelar">Cancelar</string>
+    <string name="tipo_crime_comum">Comum</string>
+    <string name="tipo_crime_hediondo">Hediondo/Equiparado</string>
+    <string name="status_apenado_primario">Primário</string>
+    <string name="status_apenado_reincidente">Reincidente</string>
 </resources>
