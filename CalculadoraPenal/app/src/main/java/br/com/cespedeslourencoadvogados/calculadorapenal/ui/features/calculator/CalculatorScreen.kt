@@ -44,6 +44,7 @@ fun CalculatorScreen(
         DurationInput(R.string.label_pena_total)
 
         // Data de Início
+        DataInput(R.string.label_inicio_pena)
 
         // Tempo de Detração
         DurationInput(R.string.label_detracao)
@@ -69,7 +70,7 @@ fun DurationInput(
             style = MaterialTheme.typography.bodyMedium
         )
         // Campos
-        Row (
+        Row(
             horizontalArrangement = Arrangement.spacedBy(6.dp),
             modifier = Modifier.fillMaxWidth()
         ) {

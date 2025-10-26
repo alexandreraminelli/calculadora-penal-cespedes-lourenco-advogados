@@ -6,4 +6,8 @@
     <string name="meses">Meses</string>
     <string name="dias">Dias</string>
     <string name="label_detracao">Tempo de Detração</string>
+    <string name="label_inicio_pena">Data de Início do Cumprimento da Pena</string>
+    <string name="selecionar_data">Selecionar Data</string>
+    <string name="confirmar">OK</string>
+    <string name="cancelar">Cancelar</string>
 </resources>
