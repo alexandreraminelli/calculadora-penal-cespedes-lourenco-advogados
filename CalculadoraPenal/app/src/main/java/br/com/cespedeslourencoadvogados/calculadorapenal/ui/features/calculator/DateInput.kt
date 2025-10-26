@@ -13,6 +13,7 @@ import androidx.compose.material3.DatePicker
 import androidx.compose.material3.DatePickerDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -24,6 +25,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -47,11 +49,15 @@ fun DataInput(
     Column(
         modifier = modifier
     ) {
+        Text(
+            text = stringResource(label),
+            style = MaterialTheme.typography.bodyMedium
+        )
         Box {
             OutlinedTextField(
                 value = selectedDate?.let { dateFormatter.format(it) } ?: "",
                 onValueChange = {},
-                label = { Text(stringResource(label)) },
+                label = { Text(stringResource(R.string.selecionar_data)) },
                 readOnly = true,
                 singleLine = true,
                 trailingIcon = {
@@ -76,7 +82,7 @@ fun DataInput(
         val datePickerState = rememberDatePickerState()
 
         DatePickerDialog(
-            onDismissRequest = {isDatePickerVisible = false}, // fechar ao clicar fora
+            onDismissRequest = { isDatePickerVisible = false }, // fechar ao clicar fora
             confirmButton = {
                 TextButton(
                     onClick = {
@@ -88,7 +94,7 @@ fun DataInput(
                 }
             },
             dismissButton = {
-                TextButton(onClick =  {isDatePickerVisible = false}) {
+                TextButton(onClick = { isDatePickerVisible = false }) {
                     Text(stringResource(R.string.cancelar))
                 }
             }
@@ -96,4 +102,11 @@ fun DataInput(
             DatePicker(state = datePickerState)
         }
     }
+}
+
+/** Pré-visualização do DateInput. */
+@Preview(showBackground = true)
+@Composable
+fun DateInputPreview() {
+    DataInput(R.string.label_inicio_pena)
 }
