@@ -27,6 +27,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import java.text.SimpleDateFormat
+import java.time.Instant
+import java.time.LocalDate
+import java.time.ZoneId
 import java.util.Date
 import java.util.Locale
 
@@ -35,6 +38,8 @@ import java.util.Locale
 @Composable
 fun DateInput(
     @StringRes label: Int,
+    value: LocalDate?,
+    onValueChange: (LocalDate?) -> Unit,
     modifier: Modifier = Modifier
 ) {
     /** Estado para controlar a data. */
@@ -50,12 +55,11 @@ fun DateInput(
         modifier = modifier
     ) {
         Text(
-            text = stringResource(label),
-            style = MaterialTheme.typography.bodyMedium
+            text = stringResource(label), style = MaterialTheme.typography.bodyMedium
         )
         Box {
             OutlinedTextField(
-                value = selectedDate?.let { dateFormatter.format(it) } ?: "",
+                value = value?.format(dateFormatter) ?: "",
                 onValueChange = {},
                 label = { Text(stringResource(R.string.selecionar_data)) },
                 readOnly = true,
@@ -79,26 +83,34 @@ fun DateInput(
 
     // Exibir DatePickerDialog
     if (isDatePickerVisible) {
-        val datePickerState = rememberDatePickerState()
+        // Converter LocalDate para Millis
+        val initialMillis = value?.atStartOfDay(ZoneId.systemDefault())?.toInstant()?.toEpochMilli()
+
+        val datePickerState = rememberDatePickerState(initialSelectedDateMillis = initialMillis)
 
         DatePickerDialog(
-            onDismissRequest = { isDatePickerVisible = false }, // fechar ao clicar fora
+            onDismissRequest = {
+                isDatePickerVisible = false
+            }, // fechar ao clicar fora
             confirmButton = {
                 TextButton(
                     onClick = {
                         isDatePickerVisible = false
-                        selectedDate = datePickerState.selectedDateMillis?.let { Date(it) }
-                    }
-                ) {
+                        // Converter Millis para LocalDate
+                        val selectedMillis = datePickerState.selectedDateMillis
+                        val localDate = selectedMillis?.let {
+                            Instant.ofEpochMilli(it).atZone(ZoneId.systemDefault())
+                                .toLocalDate()
+                        }
+                        onValueChange(localDate)
+                    }) {
                     Text(stringResource(R.string.confirmar))
                 }
-            },
-            dismissButton = {
+            }, dismissButton = {
                 TextButton(onClick = { isDatePickerVisible = false }) {
                     Text(stringResource(R.string.cancelar))
                 }
-            }
-        ) {
+            }) {
             DatePicker(state = datePickerState)
         }
     }
