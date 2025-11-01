@@ -25,6 +25,8 @@ import br.com.cespedeslourencoadvogados.calculadorapenal.data.TipoCrime
 fun <E> SelectInput(
     @StringRes label: Int,
     options: List<E>,
+    selected: E,
+    onSelectionChanged: (E) -> Unit,
     modifier: Modifier = Modifier
 ) where E : Enum<E>, E : OptionEnum {
     /** Item selecionado. */
@@ -42,8 +44,8 @@ fun <E> SelectInput(
                         index = index,
                         count = options.size
                     ),
-                    onClick = { selectedIndex = index },
-                    selected = index == selectedIndex,
+                    onClick = { onSelectionChanged(option) },
+                    selected = (index == options.indexOf(selected)),
                     label = { Text(stringResource(option.label)) }
                 )
             }
@@ -57,6 +59,8 @@ fun <E> SelectInput(
 fun SelectInputPreview() {
     SelectInput(
         label = R.string.label_tipo_crime,
-        options = TipoCrime.values().toList()
+        options = TipoCrime.values().toList(),
+        selected = TipoCrime.values().first(),
+        onSelectionChanged = {}
     )
 }
