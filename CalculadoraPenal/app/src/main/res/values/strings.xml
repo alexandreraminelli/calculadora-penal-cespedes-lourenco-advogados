@@ -17,4 +17,7 @@
     <string name="label_tipo_crime">Tipo de Crime</string>
     <string name="label_status_apenado">Status do Apenado</string>
     <string name="calcular">Calcular</string>
+    <string name="resultado_semiaberto">Regime Semiaberto</string>
+    <string name="resultado_aberto">Regime Aberto</string>
+    <string name="regime_livramento">Livramento Condicional</string>
 </resources>
