@@ -56,7 +56,7 @@ class CalculatorViewModel : ViewModel() {
         _uiState.update { it.copy(penaTotalAnos = value.filter { c -> c.isDigit() }) }
     }
 
-    fun onPenaTotalMeses(value: String) {
+    fun onPenaTotalMesesChanged(value: String) {
         _uiState.update { it.copy(penaTotalMeses = value.filter { c -> c.isDigit() }) }
     }
 
