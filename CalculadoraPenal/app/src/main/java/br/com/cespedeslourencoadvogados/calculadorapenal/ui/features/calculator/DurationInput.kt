@@ -21,7 +21,16 @@ import br.com.cespedeslourencoadvogados.calculadorapenal.R
 /** Input de tempo em anos, meses e dias. */
 @Composable
 fun DurationInput(
+    // Rótulo
     @StringRes label: Int,
+    // Valores
+    anos: String,
+    onAnosChanged: (String) -> Unit,
+    meses: String,
+    onMesesChanged: (String) -> Unit,
+    dias: String,
+    onDiasChanged: (String) -> Unit,
+
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -40,16 +49,22 @@ fun DurationInput(
             // Anos
             DurationField(
                 type = DurationType.YEARS,
+                value = anos,
+                onValueChange = onAnosChanged,
                 modifier = Modifier.weight(1f)
             )
             // Meses
             DurationField(
                 type = DurationType.MONTHS,
+                value = meses,
+                onValueChange = onMesesChanged,
                 modifier = Modifier.weight(1f)
             )
             // Dias
             DurationField(
                 type = DurationType.DAYS,
+                value = dias,
+                onValueChange = onDiasChanged,
                 modifier = Modifier.weight(1f)
             )
         }
@@ -67,6 +82,8 @@ enum class DurationType {
 @Composable
 fun DurationField(
     type: DurationType,
+    value: String,
+    onValueChange: (String) -> Unit,
     modifier: Modifier = Modifier
 ) {
     val label = stringResource(
@@ -80,8 +97,8 @@ fun DurationField(
     OutlinedTextField(
         label = { Text(label) },
         placeholder = { Text("0") },
-        value = "",
-        onValueChange = {},
+        value = value,
+        onValueChange = onValueChange,
         singleLine = true,
         keyboardOptions = KeyboardOptions.Default.copy(
             keyboardType = KeyboardType.Number,
