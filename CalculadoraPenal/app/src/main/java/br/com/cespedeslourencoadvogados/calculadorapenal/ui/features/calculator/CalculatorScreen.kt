@@ -5,13 +5,8 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material3.Button
-import androidx.compose.material3.ElevatedButton
-import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -46,7 +41,7 @@ fun CalculatorScreen(
         DurationInput(R.string.label_pena_total)
 
         // Data de Início
-        DataInput(R.string.label_inicio_pena)
+        DateInput(R.string.label_inicio_pena)
 
         // Tempo de Detração
         DurationInput(R.string.label_detracao)

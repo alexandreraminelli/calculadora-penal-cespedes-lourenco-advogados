@@ -33,7 +33,7 @@ import java.util.Locale
 /** Input de data. */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DataInput(
+fun DateInput(
     @StringRes label: Int,
     modifier: Modifier = Modifier
 ) {
@@ -108,5 +108,5 @@ fun DataInput(
 @Preview(showBackground = true)
 @Composable
 fun DateInputPreview() {
-    DataInput(R.string.label_inicio_pena)
+    DateInput(R.string.label_inicio_pena)
 }
