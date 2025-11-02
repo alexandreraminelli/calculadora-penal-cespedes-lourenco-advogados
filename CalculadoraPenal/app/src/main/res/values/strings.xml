@@ -20,4 +20,5 @@
     <string name="resultado_semiaberto">Regime Semiaberto</string>
     <string name="resultado_aberto">Regime Aberto</string>
     <string name="regime_livramento">Livramento Condicional</string>
+    <string name="voltar">Voltar</string>
 </resources>

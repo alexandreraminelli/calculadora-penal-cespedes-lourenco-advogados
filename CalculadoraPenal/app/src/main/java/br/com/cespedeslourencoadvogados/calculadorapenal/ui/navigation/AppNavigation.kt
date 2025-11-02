@@ -65,7 +65,10 @@ fun AppNavigation(modifier: Modifier = Modifier) {
                 )
 
                 // Exibe a tela de resultado com os dados
-                ResultsScreen(result = result)
+                ResultsScreen(
+                    result = result,
+                    onBackClicked = { navController.popBackStack() }
+                )
             }
         }
     }
