@@ -30,6 +30,7 @@ import java.text.SimpleDateFormat
 import java.time.Instant
 import java.time.LocalDate
 import java.time.ZoneId
+import java.time.format.DateTimeFormatter
 import java.util.Date
 import java.util.Locale
 
@@ -42,14 +43,11 @@ fun DateInput(
     onValueChange: (LocalDate?) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    /** Estado para controlar a data. */
-    var selectedDate by remember { mutableStateOf<Date?>(null) }
-
     /** Estado para controlar a visibilidade do data dialog. */
     var isDatePickerVisible by remember { mutableStateOf(false) }
 
     /** Objeto para formatar Date para String. */
-    val dateFormatter = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+    val dateFormatter = remember { DateTimeFormatter.ofPattern("dd/MM/yyyy") }
 
     Column(
         modifier = modifier
@@ -120,5 +118,9 @@ fun DateInput(
 @Preview(showBackground = true)
 @Composable
 fun DateInputPreview() {
-    DateInput(R.string.label_inicio_pena)
+    DateInput(
+        label = R.string.label_inicio_pena,
+        value = null, // Estado inicial
+        onValueChange = {} // Ação vazia para o preview
+    )
 }
