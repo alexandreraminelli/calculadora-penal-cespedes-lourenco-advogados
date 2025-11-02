@@ -1,5 +1,6 @@
 package br.com.cespedeslourencoadvogados.calculadorapenal.ui.features.results
 
+import android.widget.Space
 import br.com.cespedeslourencoadvogados.calculadorapenal.R
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -18,6 +19,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import br.com.cespedeslourencoadvogados.calculadorapenal.data.model.CalculationResult
 import br.com.cespedeslourencoadvogados.calculadorapenal.ui.Logo
+import br.com.cespedeslourencoadvogados.calculadorapenal.ui.features.results.contact.WebsiteButton
 import br.com.cespedeslourencoadvogados.calculadorapenal.ui.theme.CalculadoraPenalTheme
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -36,24 +38,26 @@ fun ResultsScreen(
         modifier = modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp, vertical = 20.dp),
-        verticalArrangement = Arrangement.spacedBy(20.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         // Cards de Resultados
         ResultsCard(result = result)
 
 
+        Spacer(Modifier.height(48.dp))
         // Botão de voltar
-        Spacer(Modifier.height(16.dp))
         OutlinedButton(
             onClick = onBackClicked,
             modifier = Modifier.fillMaxWidth()
         ) {
             Text(stringResource(R.string.voltar))
         }
+        Spacer(Modifier.height(8.dp))
+        // Botão do site
+        WebsiteButton()
 
         // Logo
-        Spacer(Modifier.height(16.dp))
+        Spacer(Modifier.height(40.dp))
         Logo()
     }
 }
