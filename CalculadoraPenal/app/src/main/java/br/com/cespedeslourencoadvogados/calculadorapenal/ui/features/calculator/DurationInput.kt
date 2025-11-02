@@ -112,5 +112,13 @@ fun DurationField(
 @Preview(showBackground = true)
 @Composable
 fun DurationInputPreview() {
-    DurationInput(label = R.string.label_pena_total)
+    DurationInput(
+        label = R.string.anos,
+        anos = "1",
+        onAnosChanged = {},
+        meses = "2",
+        onMesesChanged = {},
+        dias = "3",
+        onDiasChanged = {}
+    )
 }
