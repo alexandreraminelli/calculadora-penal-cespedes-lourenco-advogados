@@ -23,6 +23,7 @@ import br.com.cespedeslourencoadvogados.calculadorapenal.R
 import br.com.cespedeslourencoadvogados.calculadorapenal.data.StatusApenado
 import br.com.cespedeslourencoadvogados.calculadorapenal.data.TipoCrime
 import br.com.cespedeslourencoadvogados.calculadorapenal.data.model.CalculationResult
+import br.com.cespedeslourencoadvogados.calculadorapenal.ui.Logo
 
 /** Formulário da Calculadora Penal. */
 @Composable
@@ -50,10 +51,7 @@ fun CalculatorScreen(
             .padding(horizontal = 16.dp, vertical = 20.dp)
     ) {
         // Imagem da logo
-        Image(
-            painter = painterResource(R.drawable.logo_cor),
-            contentDescription = null,
-        )
+        Logo()
 
         // Pena Total
         DurationInput(
