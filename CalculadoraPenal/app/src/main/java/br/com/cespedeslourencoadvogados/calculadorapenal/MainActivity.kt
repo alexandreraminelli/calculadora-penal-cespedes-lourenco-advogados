@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import br.com.cespedeslourencoadvogados.calculadorapenal.ui.features.calculator.CalculatorScreen
 import br.com.cespedeslourencoadvogados.calculadorapenal.ui.layout.AppBar
+import br.com.cespedeslourencoadvogados.calculadorapenal.ui.navigation.AppNavigation
 import br.com.cespedeslourencoadvogados.calculadorapenal.ui.theme.CalculadoraPenalTheme
 
 class MainActivity : ComponentActivity() {
@@ -36,7 +37,7 @@ fun CalculadoraPenalApp(
         modifier = modifier
             .fillMaxSize()
     ) { innerPadding ->
-        CalculatorScreen(modifier = Modifier.padding(innerPadding))
+        AppNavigation(modifier = Modifier.padding(innerPadding))
     }
 }
 
